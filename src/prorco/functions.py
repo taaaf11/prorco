@@ -20,7 +20,7 @@ def is_prime(number: int) -> bool:
         case 2:
             is_n_prime = True
         case _:
-            pf: list[int] = prime_factors(number)
-            is_n_prime = len(pf) == 2
+            factors: list[int] = get_factors(number)
+            is_n_prime = len(factors) == 2
 
     return is_n_prime
