@@ -1,7 +1,7 @@
 import sys
 from argparse import ArgumentParser
 
-from prorco.functions import is_prime
+from prorco.functions import is_prime, get_factors
 from prorco.utils import parse_input, show_info
 
 
@@ -23,9 +23,15 @@ def main():
     )
 
     parser.add_argument("-n", type=int, help="The number to check.")
+    parser.add_argument("-f", type=int, help="Show prime factors of the number.")
 
     args = parser.parse_args()
 
     if args.n:
-        number = int(args.n)
+        number = args.n
         show_info(is_prime(number))
+    if args.f:
+        number = args.f
+        factors = get_factors(number)
+        factors = [str(_) for _ in factors]
+        print(f"The prime factors of given number are: {', '.join(factors)}")

@@ -1,11 +1,12 @@
-def prime_factors(number: int) -> list[int]:
-    """Returns a list of prime factors of a number."""
+def get_factors(number: int) -> list[int]:
+    """Returns a list of factors of a number."""
 
-    pf = [1, number]
+    factors = [1, number]
     for n in range(2, number):
         if number % n == 0:
-            pf.append(n)
-    return pf
+            factors.append(n)
+    factors = sorted(factors)
+    return factors
 
 
 def is_prime(number: int) -> bool:
