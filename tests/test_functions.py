@@ -1,7 +1,6 @@
 from prorco.functions import get_factors, is_prime
 
 
-
 def test_get_factors():
     number = 20
 

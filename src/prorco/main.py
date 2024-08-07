@@ -1,7 +1,7 @@
 import sys
 from argparse import ArgumentParser
 
-from prorco.functions import is_prime, get_factors
+from prorco.functions import get_factors, is_prime
 from prorco.utils import parse_input, show_info
 
 
