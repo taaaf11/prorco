@@ -1,0 +1,8 @@
+pyproject.toml
+src/prorco/__main__.py
+src/prorco/main.py
+src/prorco.functions.egg-info/PKG-INFO
+src/prorco.functions.egg-info/SOURCES.txt
+src/prorco.functions.egg-info/dependency_links.txt
+src/prorco.functions.egg-info/top_level.txt
+src/prorco/functions/__init__.py

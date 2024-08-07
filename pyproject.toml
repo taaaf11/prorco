@@ -1,0 +1,11 @@
+[project]
+name = "prorco"
+description = "A tool to check whether given number is prime or composite."
+version = "1.0.0"
+authors = [
+	{name = "Muhammad Altaaf", email = "taafuuu@gmail.com"}
+]
+
+
+[project.scripts]
+prorco = "prorco.main:main"

@@ -1,0 +1,2 @@
+[console_scripts]
+prorco = prorco.main:main
