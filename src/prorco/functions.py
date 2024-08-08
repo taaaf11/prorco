@@ -1,5 +1,5 @@
 def get_factors(number: int) -> list[int]:
-    """Returns a list of factors of a number."""
+    """Returns a list of factors of given number."""
 
     factors = [1, number]
     for n in range(2, number):
@@ -20,7 +20,15 @@ def is_prime(number: int) -> bool:
         case 2:
             is_n_prime = True
         case _:
-            factors: list[int] = get_factors(number)
+            factors = get_factors(number)
             is_n_prime = len(factors) == 2
 
     return is_n_prime
+
+
+def get_prime_factors(number: int) -> list[int]:
+    """Returns a list of prime factors of given number."""
+
+    factors = get_factors(number)
+    pfactors = [factor for factor in factors if is_prime(factor)]
+    return pfactors
