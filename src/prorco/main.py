@@ -10,7 +10,7 @@ def cli():
     number = input("Enter a number. ")
     number = parse_input(number)
 
-    show_info(is_prime(number))
+    show_info(InfoType.IS_PRIME, is_prime(number))
 
 
 def main():
