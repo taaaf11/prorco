@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 
 from prorco.functions import get_factors, get_prime_factors, is_prime
 from prorco.utils import parse_input, show_info
+from prorco.type import InfoType
 
 
 def cli():
@@ -30,15 +31,12 @@ def main():
 
     if args.n:
         number = args.n
-        show_info(is_prime(number))
+        show_info(InfoType.IS_PRIME, is_prime(number))
     if args.f:
         number = args.f
         factors: list[int] = get_factors(number)
-        factors = [str(_) for _ in factors]
-        print(f"The factors of given number are: {', '.join(factors)}")
-
+        show_info(InfoType.FACTORS, factors)
     if args.pf:
         number = args.pf
         pfactors: list[int] = get_prime_factors(number)
-        pfactors = [str(_) for _ in pfactors]
-        print(f"The prime factors of given number are: {', '.join(pfactors)}")
+        show_info(InfoType.FACTORS, pfactors)

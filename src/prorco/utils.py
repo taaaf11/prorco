@@ -1,3 +1,8 @@
+from typing import Any
+
+from prorco.type import InfoType
+
+
 def parse_input(input_: str) -> int:
     """Parse input and do related things."""
 
@@ -10,10 +15,16 @@ def parse_input(input_: str) -> int:
         return int(input_)
 
 
-def show_info(is_prime: bool) -> None:
-    """Print info about the number to the screen."""
+def show_info(info_type: InfoType, info: Any) -> None:
+    """Print info to the screen."""
 
-    if is_prime:
-        print("The number is prime.")
-    else:
-        print("The number is composite.")
+    match info_type:
+        case InfoType.IS_PRIME:
+            if is_prime:
+                print("The number is prime.")
+            else:
+                print("The number is composite.")
+        case InfoType.FACTORS:
+            # info would be a list[int] here
+            info = [str(_) for _ in info]
+            print(", ".join(info))
