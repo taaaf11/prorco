@@ -1,4 +1,4 @@
-from prorco.functions import get_factors, get_prime_factors, is_prime
+from prorco.functions import get_factors, get_num_type, get_prime_factors
 from prorco.type import NumberType
 
 
@@ -20,15 +20,15 @@ def test_get_prime_factors():
     assert test_data == accurate_data
 
 
-def test_is_prime():
+def test_get_num_type():
     number = 1
-    assert is_prime(number) == NumberType.NONE
+    assert get_num_type(number) == NumberType.NONE
 
     number = 2
-    assert is_prime(number) == NumberType.PRIME
+    assert get_num_type(number) == NumberType.PRIME
 
     number = 4
-    assert is_prime(number) == NumberType.COMP
+    assert get_num_type(number) == NumberType.COMP
 
     number = 5
-    assert is_prime(number) == NumberType.PRIME
+    assert get_num_type(number) == NumberType.PRIME
