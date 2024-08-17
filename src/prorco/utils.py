@@ -1,5 +1,6 @@
 from typing import Any
 
+from prorco.functions import is_prime
 from prorco.type import InfoType
 
 
@@ -20,11 +21,14 @@ def show_info(info_type: InfoType, info: Any) -> None:
 
     match info_type:
         case InfoType.IS_PRIME:
-            if is_prime:
+            # info is int here
+            info: int
+            if is_prime(info):
                 print("The number is prime.")
             else:
                 print("The number is composite.")
-        case InfoType.FACTORS:
-            # info would be a list[int] here
-            info = [str(_) for _ in info]
-            print(", ".join(info))
+        case InfoType.FACTORS:  # for both prime and compositefactors
+            # info is list[int] here
+            info: list[int]
+            factors = list(map(str, info))
+            print(", ".join(factors))

@@ -1,7 +1,6 @@
 import sys
 from argparse import ArgumentParser
 
-from prorco.functions import get_factors, get_prime_factors, is_prime
 from prorco.utils import parse_input, show_info
 from prorco.type import InfoType
 
@@ -10,7 +9,7 @@ def cli():
     number = input("Enter a number. ")
     number = parse_input(number)
 
-    show_info(InfoType.IS_PRIME, is_prime(number))
+    show_info(InfoType.IS_PRIME, number)
 
 
 def main():
@@ -39,4 +38,4 @@ def main():
     if args.pf:
         number = args.pf
         pfactors: list[int] = get_prime_factors(number)
-        show_info(InfoType.FACTORS, pfactors)
+        show_info(InfoType.FACTORS, factors)
