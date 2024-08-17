@@ -16,7 +16,10 @@ def get_prime_factors(number: int) -> list[int]:
     """Returns a list of prime factors of given number."""
 
     factors = get_factors(number)
-    pfactors = [factor for factor in factors if is_prime(factor)]
+    pfactors = []
+    for factor in factors:
+        if get_num_type(factor) == NumberType.PRIME:
+            pfactors.append(factor)
     return pfactors
 
 
@@ -33,5 +36,4 @@ def get_num_type(number: int) -> NumberType:
         case _:
             factors = get_factors(number)
             n_type = NumberType.PRIME if len(factors) == 2 else NumberType.COMP
-
     return n_type

@@ -30,12 +30,10 @@ def main():
 
     if args.n:
         number = args.n
-        show_info(InfoType.IS_PRIME, is_prime(number))
+        show_info(InfoType.IS_PRIME, number)
     if args.f:
         number = args.f
-        factors: list[int] = get_factors(number)
-        show_info(InfoType.FACTORS, factors)
+        show_info(InfoType.FACTORS, number)
     if args.pf:
         number = args.pf
-        pfactors: list[int] = get_prime_factors(number)
-        show_info(InfoType.FACTORS, factors)
+        show_info(InfoType.PFACTORS, number)

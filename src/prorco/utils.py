@@ -1,7 +1,7 @@
 import sys
 from typing import Any
 
-from prorco.functions import get_num_type
+from prorco.functions import get_factors, get_num_type, get_prime_factors
 from prorco.type import InfoType, NumberType
 
 
@@ -30,8 +30,15 @@ def show_info(info_type: InfoType, info: Any) -> None:
                     print("The number is composite.")
                 case NumberType.NONE:
                     print("The number is neither prime nor composite.")
-        case InfoType.FACTORS:  # for both prime and composite factors
-            # info is list[int] here
-            info: list[int]
-            factors = list(map(str, info))
+        case InfoType.FACTORS:
+            # info is int here
+            info: int
+            factors: list[int] = get_factors(info)
+            factors = list(map(str, factors))
             print(", ".join(factors))
+        case InfoType.PFACTORS:
+            # info is int here
+            info: int
+            pfactors: list[int] = get_prime_factors(info)
+            pfactors = list(map(str, pfactors))
+            print(", ".join(pfactors))
