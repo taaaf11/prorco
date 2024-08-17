@@ -1,3 +1,6 @@
+from prorco.type import NumberType
+
+
 def get_factors(number: int) -> list[int]:
     """Returns a list of factors of given number."""
 
@@ -17,18 +20,18 @@ def get_prime_factors(number: int) -> list[int]:
     return pfactors
 
 
-def is_prime(number: int) -> bool:
-    """Returns whether given number is prime."""
+def get_num_type(number: int) -> NumberType:
+    """Returns whether given number is prime, composite or none."""
 
-    is_n_prime: bool
+    n_type: NumberType
 
     match number:
         case 1:
-            is_n_prime = False
+            n_type = NumberType.NONE
         case 2:
-            is_n_prime = True
+            n_type = NumberType.PRIME
         case _:
             factors = get_factors(number)
-            is_n_prime = len(factors) == 2
+            n_type = NumberType.PRIME if len(factors) == 2 else NumberType.COMP
 
-    return is_n_prime
+    return n_type

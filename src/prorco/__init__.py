@@ -1,1 +1,1 @@
-from prorco.functions import get_factors, is_prime
+from prorco.functions import get_factors, get_num_type, get_prime_factors

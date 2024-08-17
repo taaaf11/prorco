@@ -1,8 +1,8 @@
 import sys
 from typing import Any
 
-from prorco.functions import is_prime
-from prorco.type import InfoType
+from prorco.functions import get_num_type
+from prorco.type import InfoType, NumberType
 
 
 def parse_input(input_: str) -> int:
@@ -22,14 +22,15 @@ def show_info(info_type: InfoType, info: Any) -> None:
         case InfoType.IS_PRIME:
             # info is int here
             info: int
-            if info == 1:
-                print("Neither prime nor composite!")
-                sys.exit(0)
-            if is_prime(info):
-                print("The number is prime.")
-            else:
-                print("The number is composite.")
-        case InfoType.FACTORS:  # for both prime and compositefactors
+            n_type: NumberType = get_num_type(info)
+            match n_type:
+                case NumberType.PRIME:
+                    print("The number is prime.")
+                case NumberType.COMP:
+                    print("The number is composite.")
+                case NumberType.NONE:
+                    print("The number is neither prime nor composite.")
+        case InfoType.FACTORS:  # for both prime and composite factors
             # info is list[int] here
             info: list[int]
             factors = list(map(str, info))
