@@ -1,3 +1,4 @@
+import sys
 from typing import Any
 
 from prorco.functions import is_prime
@@ -7,11 +8,9 @@ from prorco.type import InfoType
 def parse_input(input_: str) -> int:
     """Parse input and do related things."""
 
-    try:
-        int(input_)
-    except ValueError:
-        print("Please type a valid integer.")
-        exit(1)
+    if not input_.isdigit():
+        print("That doesn't seem a valid number.")
+        sys.exit(1)
     else:
         return int(input_)
 
@@ -23,6 +22,9 @@ def show_info(info_type: InfoType, info: Any) -> None:
         case InfoType.IS_PRIME:
             # info is int here
             info: int
+            if info == 1:
+                print("Neither prime nor composite!")
+                sys.exit(0)
             if is_prime(info):
                 print("The number is prime.")
             else:
